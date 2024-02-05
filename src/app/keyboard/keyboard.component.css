@@ -1,33 +1,38 @@
 .keyboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .key-row {
   display: flex;
+  flex: 2 1 200%;
 }
 
 .key {
-  margin: 5px;
-  padding: 10px 15px;
+  flex: 1;
+  margin: 0.25rem;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
   cursor: pointer;
-  flex-grow: 2;
+  text-align: center;
   user-select: none;
   /* Adjust the border-radius and box-shadow as per your design preference */
   border-radius: 4px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
+.key.double {
+  flex: 2;
+}
+
 .key:focus {
   outline: none;
 }
 
-.key.backspace {
-  flex-grow: 25;
+.space-holder:before {
+  content: 'A';
+  display: block;
+  padding-top: 100%;
 }
 
 .clicked {

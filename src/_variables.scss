@@ -5,6 +5,14 @@ $xanthous: rgba(248, 189, 81, 1);
 $columbia-blue: rgba(168, 204, 226, 1);
 $hunyadi-yellow: rgba(232, 163, 65, 1);
 
+$black-100: lighten($black, 100%);
+$black-75: lighten($black, 75%);
+$black-50: lighten($black, 50%);
+$black-25: lighten($black, 25%);
+$black-10: lighten($black, 10%);
+$black-05: lighten($black, 05%);
+
+
 /* SCSS Gradient */
 $gradient-top: linear-gradient(0deg, #000000ff, #F7F7F5ff, #F8BD51ff, #A8CCE2ff, #E8A341ff);
 $gradient-right: linear-gradient(90deg, #000000ff, #F7F7F5ff, #F8BD51ff, #A8CCE2ff, #E8A341ff);
@@ -15,3 +23,4 @@ $gradient-bottom-right: linear-gradient(135deg, #000000ff, #F7F7F5ff, #F8BD51ff,
 $gradient-top-left: linear-gradient(225deg, #000000ff, #F7F7F5ff, #F8BD51ff, #A8CCE2ff, #E8A341ff);
 $gradient-bottom-left: linear-gradient(315deg, #000000ff, #F7F7F5ff, #F8BD51ff, #A8CCE2ff, #E8A341ff);
 $gradient-radial: radial-gradient(#000000ff, #F7F7F5ff, #F8BD51ff, #A8CCE2ff, #E8A341ff);
+

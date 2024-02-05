@@ -1,4 +1,4 @@
-<div class="keyboard">
+<div class="keyboard parent">
   <!-- Row 1 -->
   <div class="key-row">
     <button class="key" [class.clicked]="isKeyActive('q')" (click)="onKeyClick('q')">Q</button>
@@ -11,11 +11,12 @@
     <button class="key" [class.clicked]="isKeyActive('i')" (click)="onKeyClick('i')">I</button>
     <button class="key" [class.clicked]="isKeyActive('o')" (click)="onKeyClick('o')">O</button>
     <button class="key" [class.clicked]="isKeyActive('p')" (click)="onKeyClick('p')">P</button>
-    <button class="key backspace" [class.clicked]="isKeyActive('backspace')" (click)="onKeyClick('backspace')">&larr;</button>
+    <button class="key backspace double" [class.clicked]="isKeyActive('backspace')" (click)="onKeyClick('backspace')">&larr;</button>
   </div>
 
   <!-- Row 2 -->
   <div class="key-row">
+    <div class="space-holder"></div>
     <button class="key" [class.clicked]="isKeyActive('a')" (click)="onKeyClick('a')">A</button>
     <button class="key" [class.clicked]="isKeyActive('s')" (click)="onKeyClick('s')">S</button>
     <button class="key" [class.clicked]="isKeyActive('d')" (click)="onKeyClick('d')">D</button>
@@ -25,7 +26,7 @@
     <button class="key" [class.clicked]="isKeyActive('j')" (click)="onKeyClick('j')">J</button>
     <button class="key" [class.clicked]="isKeyActive('k')" (click)="onKeyClick('k')">K</button>
     <button class="key" [class.clicked]="isKeyActive('l')" (click)="onKeyClick('l')">L</button>
-    <button class="key" [class.clicked]="isKeyActive('enter')" (click)="onKeyClick('enter')">Enter</button>
+    <button class="key double" [class.clicked]="isKeyActive('enter')" (click)="onKeyClick('enter')">Enter</button>
   </div>
 
   <!-- Row 3 -->

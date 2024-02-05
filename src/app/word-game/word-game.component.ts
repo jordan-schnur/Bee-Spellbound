@@ -93,7 +93,7 @@ export class WordGameComponent {
   public setupGuesses() {
     this.guesses = [];
     for (let i = 0; i < this.MAX_GUESSES; i++) {
-      this.guesses.push('');
+      this.guesses.push('abcxyzm');
     }
   }
 

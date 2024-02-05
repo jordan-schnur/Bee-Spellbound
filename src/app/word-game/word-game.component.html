@@ -19,6 +19,9 @@
   <app-word [wordToSpell]="wordToSpell" [userGuess]="guess" [shouldScore]="isCorrect || i < currentTry"></app-word>
 </div>
 
-<app-keyboard (keyPress)="handleKeyPress($event)"/>
+<div class="row">
+    <app-keyboard (keyPress)="handleKeyPress($event)"/>
+</div>
+
 
 <button [disabled]="disablePlayAgain" (click)="newWord()">Reset Game</button>

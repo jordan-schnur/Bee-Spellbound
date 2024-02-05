@@ -4,28 +4,38 @@
   align-items: center;
   padding: 5px; /* Adds space around the tiles, can be adjusted to your preference */
   border-radius: 10px; /* Optional: rounds the corners of the overall "word" element */
+  max-width: 100%;
 }
 
 .tile {
   background: white;
-  border: 2px solid #808080; /* Dark grey border to distinguish each tile */
-  margin: 0 3px; /* Adjust space between tiles */
-  padding: 10px;
+  border: 2px solid #808080;
+  margin: 0 3px;
   text-align: center;
-  font-size: 2em; /* Larger text for visibility */
-  text-transform: uppercase; /* Make letters uppercase */
-  min-width: 50px; /* Set a minimum width for each tile */
-  height: 50px; /* Height set to the same as width to create square tiles */
-  display: flex; /* Use flex to center the letter inside the tile */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow to each tile */
+  font-size: 2em;
+  text-transform: uppercase;
+  flex-grow: 1; /* Tiles grow equally */
+  position: relative; /* Needed for absolute positioning of ::after */
+  overflow: hidden; /* Keeps the pseudo-element inside the tile */
+  max-width: 4rem;
+  max-height: 4rem;
 }
 
-/* Remove margin for the first and last tile to make the word look more connected */
-.tile:first-child, .tile:last-child {
-  margin-left: 0;
-  margin-right: 0;
+.tile::after {
+  content: '';
+  display: block;
+  padding-top: 100%; /* Aspect ratio 1:1 to maintain square shape */
+}
+
+.tile-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tile.correct {

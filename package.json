@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "publish": "ng deploy --base-href=\"/Bee-Spellbound/\""
+    "deploy": "ng deploy --base-href=\"/Bee-Spellbound/\""
   },
   "private": true,
   "dependencies": {
