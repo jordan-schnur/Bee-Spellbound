@@ -51,8 +51,6 @@ export class WordGameComponent {
 
   checkGuess() {
     let currentGuess = this.guesses[this.currentTry];
-    console.log("Current Guess: " + currentGuess);
-    console.log("Comparing %s to %s", this.wordToSpell, currentGuess);
     if (this.wordToSpell.toLowerCase() === currentGuess) {
       this.userMessage = 'Correct! Good job!';
       this.isCorrect = true;
@@ -121,6 +119,22 @@ export class WordGameComponent {
         this.newWord();
         return;
       }
+
+      if (currentGuess.length === 0) {
+        this.toastService.showToast("You haven't guessed anything!");
+          return;
+      }
+
+      if (currentGuess.length < this.wordToSpell.length) {
+          this.toastService.showToast("You haven't guessed the whole word!");
+          return;
+      }
+
+      let sameAsPrevious = this.guesses.filter((guess) => guess === currentGuess).length > 1;
+        if (sameAsPrevious) {
+           this.toastService.showToast("You already guessed that!");
+            return;
+        }
 
       this.checkGuess();
       return;

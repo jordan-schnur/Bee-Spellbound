@@ -21,11 +21,14 @@ export class ToastService {
 
   showToast(message: string) {
     const toastComponentRef = this.viewContainerRef.createComponent(ToastComponent);
-    toastComponentRef.instance.message = message;
-    toastComponentRef.instance.show = true;
+    toastComponentRef.instance.display(message);
 
     setTimeout(() => {
-      this.viewContainerRef.remove(this.viewContainerRef.indexOf(toastComponentRef.hostView));
+        this.viewContainerRef.remove(this.viewContainerRef.indexOf(toastComponentRef.hostView));
     }, 5000);
+
+
+
+
   }
 }

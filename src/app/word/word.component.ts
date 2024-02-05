@@ -30,10 +30,8 @@ export class WordComponent {
 
     results = this.wordToSpell.split('').map((letter, index) => {
       let guessedLetter = this.userGuess[index];
-      console.log("Comparing %s to %s", letter, guessedLetter);
 
       if (guessedLetter === undefined) {
-        console.log("Undefined letter");
         return 'empty';
       } else if (guessedLetter === letter) {
         return 'correct';
@@ -43,9 +41,6 @@ export class WordComponent {
 
         // count the number of times we have already guessed the letter from this point in the word
         let guessedCount = this.userGuess.slice(0, index + 1).split(guessedLetter).length - 1;
-        console.log("There is %d %s in the word", count, guessedLetter);
-        console.log("It should appear no more than %d times", count);
-        console.log("The letter has already appeared %d times in the word", guessedCount);
         // if we have guessed the letter more times than it appears in the word, it is invalid
         if (guessedCount > count) {
           return 'invalid';

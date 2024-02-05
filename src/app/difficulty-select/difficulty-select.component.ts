@@ -16,7 +16,6 @@ export class DifficultySelectComponent {
   }
 
   selectDifficulty(difficulty: DifficultyLevel) {
-    console.log("Selected difficulty: " + difficulty);
     this.router.navigate(['/game'], {queryParams: {difficulty: difficulty}});
   }
 }
