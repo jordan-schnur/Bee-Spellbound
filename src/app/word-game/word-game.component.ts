@@ -7,6 +7,7 @@ import {NgForOf} from "@angular/common";
 import { DifficultyLevel } from '../difficulty-level.enum';
 import {ToastComponent} from "../toast/toast.component";
 import {ToastService} from "../toast.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-word-game',
@@ -22,7 +23,7 @@ import {ToastService} from "../toast.service";
   styleUrl: './word-game.component.css'
 })
 export class WordGameComponent {
-  wordToSpell = 'abandon';
+  wordToSpell = '';
   userMessage = '';
   MAX_GUESSES = 5;
   currentTry = 0;
@@ -31,16 +32,21 @@ export class WordGameComponent {
   isCorrect = false;
   score = 0;
   currentAudio: HTMLAudioElement | undefined;
-  DifficultyLevel = DifficultyLevel;
-  selectedDifficulty = DifficultyLevel.Easy;
+  selectedDifficulty: DifficultyLevel | null = null;
 
-  constructor(private wordService: WordService, private viewContainerRef: ViewContainerRef, private toastService: ToastService) {
+  constructor(private wordService: WordService, private viewContainerRef: ViewContainerRef, private toastService: ToastService, private route: ActivatedRoute, private router: Router) {
     this.toastService.setViewContainerRef(viewContainerRef);
-    this.wordToSpell = wordService.getRandomWord(this.selectedDifficulty);
   }
 
   ngOnInit() {
-    this.newWord();
+    this.route.queryParams.subscribe(params => {
+      if (params['difficulty'] === undefined) {
+        this.router.navigate(['/difficulty-select']).then(r => console.log("Navigated to difficulty-select"));
+        return;
+      }
+      this.selectedDifficulty = params['difficulty'];
+      this.newWord();
+    });
   }
 
   checkGuess() {
@@ -72,6 +78,11 @@ export class WordGameComponent {
   }
 
   newWord() {
+    if (this.selectedDifficulty === null) {
+      return;
+    }
+
+
     this.wordToSpell = this.wordService.getRandomWord(this.selectedDifficulty);
     this.setupGuesses();
     this.isCorrect = false;

@@ -12,21 +12,4 @@
 
 <app-keyboard (keyPress)="handleKeyPress($event)"/>
 
-<form>
-  <label>
-    <input type="radio" name="difficulty" [(ngModel)]="selectedDifficulty" [value]="DifficultyLevel.Easy">
-    Easy
-  </label>
-
-  <label>
-    <input type="radio" name="difficulty" [(ngModel)]="selectedDifficulty" [value]="DifficultyLevel.Medium">
-    Medium
-  </label>
-
-  <label>
-    <input type="radio" name="difficulty" [(ngModel)]="selectedDifficulty" [value]="DifficultyLevel.Hard">
-    Hard
-  </label>
-</form>
-
 <button [disabled]="disablePlayAgain" (click)="newWord()">Reset Game</button>
