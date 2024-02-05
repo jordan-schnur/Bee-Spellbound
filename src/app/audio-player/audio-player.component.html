@@ -1,0 +1,25 @@
+<div class="audio-player">
+  <div class="controls">
+    <button class="btn btn-primary" (click)="resetAudio()">
+      <fa-icon [icon]="faReply"></fa-icon>
+    </button>
+    <button class="btn btn-primary" (click)="toggleAudio()">
+     <fa-icon *ngIf="!isPlaying" [icon]="faPlay"></fa-icon>
+      <fa-icon *ngIf="isPlaying" [icon]="faPause" ></fa-icon>
+    </button>
+  </div>
+  <div class="seek">
+    <span>{{formatSeconds(currentTime)}}</span>
+    <input
+      class="seeker-input"
+      type="range"
+      min="0"
+      step="0.25"
+      [max]="currentAudio.duration || 0"
+      [(ngModel)]="currentTime"
+      (change)="changeAudio($event)"
+      (pointerdown)="onPointerDown($event)"
+      (pointerup)="onPointerUp($event)">
+    <span>{{currentAudio.duration ? formatSeconds(currentAudio.duration) : "0:00"}}</span>
+  </div>
+</div>

@@ -1,6 +1,15 @@
-<div>
-  <button (click)="playAudio()">Play Audio</button><br/>
-  <button (click)="showToast()">Show Toast</button><br/>
+<div class="row">
+    <div class="col-sm">
+
+    </div>
+    <div class="col-lg">
+      <div>
+        <app-audio-player #audioPlayerComponent [audioUrl]="'assets/audio/words/' + this.wordToSpell + '.mp3'"></app-audio-player>
+      </div>
+    </div>
+    <div class="col-sm">
+
+    </div>
 </div>
 
 <h3>User Score: {{score}}</h3>

@@ -1,23 +1,26 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <button class="navbar-toggler" (click)="toggleNavBar()" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
       <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.show]="navBarOpen">
               <a class="navbar-brand" href="#">
                   <img src="assets/image/logo.png" alt="" width="24" height="24" class="d-inline-block align-text-top">
                   Bootstrap
               </a>
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#" routerLink="/">Home</a>
+                      <a class="nav-link" aria-current="page" [class.active]="isActive('/home')" href="#" routerLink="/">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#" routerLink="/about">About</a>
+                      <a class="nav-link" aria-current="page" href="#"  [class.active]="isActive('/about')" routerLink="/about">About</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#" routerLink="/difficulty-select">Game</a>
+                      <a class="nav-link" aria-current="page" href="#"  [class.active]="isActive('/difficulty-select') || isActive('/game')" routerLink="/difficulty-select">Game</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#" routerLink="/about-me">About Me</a>
+                  <a class="nav-link" aria-current="page" href="#" [class.active]="isActive('/about-me')" routerLink="/about-me">About Me</a>
               </li>
               </ul>
           </div>
@@ -25,10 +28,10 @@
   </nav>
 </header>
 
-<main class="flex-shrink-0">
-  <div class="container">
-      <router-outlet/>
-  </div>
+<main roll="main" class="container pt-5 pt-md-4 pt-lg-3">
+      <div class="row">
+        <router-outlet/>
+      </div>
 </main>
 
 <app-footer></app-footer>

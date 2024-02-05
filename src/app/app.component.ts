@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {IsActiveMatchOptions, Router, RouterLink, RouterOutlet} from '@angular/router';
 import {WordGameComponent} from "./word-game/word-game.component";
 import {DifficultyLevel} from "./difficulty-level.enum";
 import {FooterComponent} from "./footer/footer.component";
@@ -13,4 +13,15 @@ import {FooterComponent} from "./footer/footer.component";
 })
 export class AppComponent {
   title = 'Bee Spellbound';
+  navBarOpen = false;
+
+  constructor(private readonly router: Router) {}
+
+  isActive(url: string): boolean {
+    return this.router.isActive(url, {paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored'} as IsActiveMatchOptions);
+  }
+
+  toggleNavBar() {
+    this.navBarOpen = !this.navBarOpen;
+  }
 }

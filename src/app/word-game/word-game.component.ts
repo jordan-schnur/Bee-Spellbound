@@ -1,4 +1,4 @@
-import {Component, ViewContainerRef} from '@angular/core';
+import {Component, EventEmitter, ViewChild, ViewContainerRef} from '@angular/core';
 import {WordService} from "../word.service";
 import {FormsModule} from "@angular/forms";
 import {KeyboardComponent} from "../keyboard/keyboard.component";
@@ -8,6 +8,7 @@ import { DifficultyLevel } from '../difficulty-level.enum';
 import {ToastComponent} from "../toast/toast.component";
 import {ToastService} from "../toast.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AudioPlayerComponent} from "../audio-player/audio-player.component";
 
 @Component({
   selector: 'app-word-game',
@@ -17,7 +18,8 @@ import {ActivatedRoute, Router} from "@angular/router";
     KeyboardComponent,
     WordComponent,
     NgForOf,
-    ToastComponent
+    ToastComponent,
+    AudioPlayerComponent
   ],
   templateUrl: './word-game.component.html',
   styleUrl: './word-game.component.css'
@@ -33,6 +35,7 @@ export class WordGameComponent {
   score = 0;
   currentAudio: HTMLAudioElement | undefined;
   selectedDifficulty: DifficultyLevel | null = null;
+  @ViewChild(AudioPlayerComponent) audioPlayerComponent!: AudioPlayerComponent;
 
   constructor(private wordService: WordService, private viewContainerRef: ViewContainerRef, private toastService: ToastService, private route: ActivatedRoute, private router: Router) {
     this.toastService.setViewContainerRef(viewContainerRef);
@@ -56,8 +59,8 @@ export class WordGameComponent {
       this.isCorrect = true;
       this.disablePlayAgain = false;
       this.score += (this.MAX_GUESSES - this.currentTry) * this.getScoreModifier();
-      if (this.currentAudio) {
-        this.currentAudio.pause();
+      if (this.audioPlayerComponent) {
+        this.audioPlayerComponent.pauseAudio();
       }
     } else {
       if (this.currentTry === this.MAX_GUESSES - 1) {
@@ -80,13 +83,11 @@ export class WordGameComponent {
       return;
     }
 
-
     this.wordToSpell = this.wordService.getRandomWord(this.selectedDifficulty);
     this.setupGuesses();
     this.isCorrect = false;
     this.disablePlayAgain = true;
     this.currentTry = 0;
-    this.playAudio();
   }
 
   public setupGuesses() {
@@ -97,14 +98,13 @@ export class WordGameComponent {
   }
 
   playAudio() {
-    if (this.currentAudio) {
-      this.currentAudio.pause();
+    if (this.audioPlayerComponent) {
+      this.audioPlayerComponent.playAudioFromStart();
     }
+  }
 
-    this.currentAudio = new Audio();
-    this.currentAudio.src = "assets/audio/words/" + this.wordToSpell + ".mp3";
-    this.currentAudio.load();
-    this.currentAudio.play();
+  ngAfterViewInit() {
+    this.playAudio();
   }
 
   handleKeyPress(key: string) {

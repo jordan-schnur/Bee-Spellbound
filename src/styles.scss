@@ -1,0 +1,14 @@
+@import "variables";
+
+$primary: $xanthous;        // Used for primary buttons and links
+$secondary: $columbia-blue; // Used for secondary buttons and components
+//$success: $seasalt;         // Used for success states
+//$info: $hunyadi-yellow;     // Used for informational alerts and actions
+//$warning: $hunyadi-yellow;  // Used for warnings
+//$danger: $xanthous;         // Used for dangerous or potentially negative actions
+$light: $seasalt;           // Used for light backgrounds
+$dark: $black;              // Used for dark text
+
+
+@import 'bootstrap/scss/bootstrap.scss';
+

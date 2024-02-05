@@ -9,7 +9,7 @@ import {faGithub, faLinkedin, faTwitter, faXbox} from "@fortawesome/free-brands-
   standalone: true,
   imports: [FontAwesomeModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
   fullYear: string = new Date().getFullYear().toString();
