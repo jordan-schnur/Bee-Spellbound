@@ -1,0 +1,41 @@
+<div class="keyboard">
+  <!-- Row 1 -->
+  <div class="key-row">
+    <button class="key" [class.clicked]="isKeyActive('q')" (click)="onKeyClick('q')">Q</button>
+    <button class="key" [class.clicked]="isKeyActive('w')" (click)="onKeyClick('w')">W</button>
+    <button class="key" [class.clicked]="isKeyActive('e')" (click)="onKeyClick('e')">E</button>
+    <button class="key" [class.clicked]="isKeyActive('r')" (click)="onKeyClick('r')">R</button>
+    <button class="key" [class.clicked]="isKeyActive('t')" (click)="onKeyClick('t')">T</button>
+    <button class="key" [class.clicked]="isKeyActive('y')" (click)="onKeyClick('y')">Y</button>
+    <button class="key" [class.clicked]="isKeyActive('u')" (click)="onKeyClick('u')">U</button>
+    <button class="key" [class.clicked]="isKeyActive('i')" (click)="onKeyClick('i')">I</button>
+    <button class="key" [class.clicked]="isKeyActive('o')" (click)="onKeyClick('o')">O</button>
+    <button class="key" [class.clicked]="isKeyActive('p')" (click)="onKeyClick('p')">P</button>
+    <button class="key backspace" [class.clicked]="isKeyActive('backspace')" (click)="onKeyClick('backspace')">&larr;</button>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="key-row">
+    <button class="key" [class.clicked]="isKeyActive('a')" (click)="onKeyClick('a')">A</button>
+    <button class="key" [class.clicked]="isKeyActive('s')" (click)="onKeyClick('s')">S</button>
+    <button class="key" [class.clicked]="isKeyActive('d')" (click)="onKeyClick('d')">D</button>
+    <button class="key" [class.clicked]="isKeyActive('f')" (click)="onKeyClick('f')">F</button>
+    <button class="key" [class.clicked]="isKeyActive('g')" (click)="onKeyClick('g')">G</button>
+    <button class="key" [class.clicked]="isKeyActive('h')" (click)="onKeyClick('h')">H</button>
+    <button class="key" [class.clicked]="isKeyActive('j')" (click)="onKeyClick('j')">J</button>
+    <button class="key" [class.clicked]="isKeyActive('k')" (click)="onKeyClick('k')">K</button>
+    <button class="key" [class.clicked]="isKeyActive('l')" (click)="onKeyClick('l')">L</button>
+    <button class="key" [class.clicked]="isKeyActive('enter')" (click)="onKeyClick('enter')">Enter</button>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="key-row">
+    <button class="key" [class.clicked]="isKeyActive('z')" (click)="onKeyClick('z')">Z</button>
+    <button class="key" [class.clicked]="isKeyActive('x')" (click)="onKeyClick('x')">X</button>
+    <button class="key" [class.clicked]="isKeyActive('c')" (click)="onKeyClick('c')">C</button>
+    <button class="key" [class.clicked]="isKeyActive('v')" (click)="onKeyClick('v')">V</button>
+    <button class="key" [class.clicked]="isKeyActive('b')" (click)="onKeyClick('b')">B</button>
+    <button class="key" [class.clicked]="isKeyActive('n')" (click)="onKeyClick('n')">N</button>
+    <button class="key" [class.clicked]="isKeyActive('m')" (click)="onKeyClick('m')">M</button>
+  </div>
+</div>

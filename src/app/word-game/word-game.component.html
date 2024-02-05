@@ -1,0 +1,32 @@
+<div>
+  <button (click)="playAudio()">Play Audio</button><br/>
+  <button (click)="showToast()">Show Toast</button><br/>
+</div>
+
+<h3>User Score: {{score}}</h3>
+<h2>{{userMessage}}</h2>
+
+<div class="tile" *ngFor="let guess of guesses; let i = index">
+  <app-word [wordToSpell]="wordToSpell" [userGuess]="guess" [shouldScore]="isCorrect || i < currentTry"></app-word>
+</div>
+
+<app-keyboard (keyPress)="handleKeyPress($event)"/>
+
+<form>
+  <label>
+    <input type="radio" name="difficulty" [(ngModel)]="selectedDifficulty" [value]="DifficultyLevel.Easy">
+    Easy
+  </label>
+
+  <label>
+    <input type="radio" name="difficulty" [(ngModel)]="selectedDifficulty" [value]="DifficultyLevel.Medium">
+    Medium
+  </label>
+
+  <label>
+    <input type="radio" name="difficulty" [(ngModel)]="selectedDifficulty" [value]="DifficultyLevel.Hard">
+    Hard
+  </label>
+</form>
+
+<button [disabled]="disablePlayAgain" (click)="newWord()">Reset Game</button>

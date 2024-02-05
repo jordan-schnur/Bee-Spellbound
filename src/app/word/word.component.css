@@ -1,0 +1,54 @@
+.word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px; /* Adds space around the tiles, can be adjusted to your preference */
+  border-radius: 10px; /* Optional: rounds the corners of the overall "word" element */
+}
+
+.tile {
+  background: white;
+  border: 2px solid #808080; /* Dark grey border to distinguish each tile */
+  margin: 0 3px; /* Adjust space between tiles */
+  padding: 10px;
+  text-align: center;
+  font-size: 2em; /* Larger text for visibility */
+  text-transform: uppercase; /* Make letters uppercase */
+  min-width: 50px; /* Set a minimum width for each tile */
+  height: 50px; /* Height set to the same as width to create square tiles */
+  display: flex; /* Use flex to center the letter inside the tile */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow to each tile */
+}
+
+/* Remove margin for the first and last tile to make the word look more connected */
+.tile:first-child, .tile:last-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tile.correct {
+  background-color: green; /* Or use the specific Wordle color */
+  color: white;
+}
+
+.tile.present {
+  background-color: orange; /* Or use the specific Wordle color */
+  color: white;
+}
+
+.tile.absent {
+  background-color: #D3D6DA;
+  color: black;
+}
+
+.tile.empty {
+  background-color: #2c2c31;
+  color: black;
+}
+
+.tile.invalid {
+  background-color: red;
+  color: white;
+}

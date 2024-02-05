@@ -1,0 +1,37 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.key-row {
+  display: flex;
+}
+
+.key {
+  margin: 5px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  flex-grow: 2;
+  user-select: none;
+  /* Adjust the border-radius and box-shadow as per your design preference */
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.key:focus {
+  outline: none;
+}
+
+.key.backspace {
+  flex-grow: 25;
+}
+
+.clicked {
+  /* Styling for when a key is clicked or pressed */
+  background-color: #e0e0e0; /* Example style */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2) inset;
+}

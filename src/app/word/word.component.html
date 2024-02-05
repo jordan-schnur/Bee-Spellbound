@@ -1,0 +1,5 @@
+<div class="word">
+  <div class="tile" [ngClass]="tileClasses[i]" *ngFor="let letter of wordToSpell.split(''); let i = index">
+    {{ userGuess[i] || '&nbsp;' }} <!-- Display letter or empty space -->
+  </div>
+</div>
